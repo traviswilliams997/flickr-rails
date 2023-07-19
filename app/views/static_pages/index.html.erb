@@ -1,2 +1,8 @@
 <h1>StaticPages#index</h1>
 <p>Find me in app/views/static_pages/index.html.erb</p>
+
+<%= form_with url: "/index", method: :get do |form| %>
+  <%= form.label :id, "Flicker User ID:" %>
+  <%= form.text_field :id %>
+  <%= form.submit "Get Photos" %>
+<% end %>
