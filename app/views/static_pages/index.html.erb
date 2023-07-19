@@ -2,7 +2,23 @@
 <p>Find me in app/views/static_pages/index.html.erb</p>
 
 <%= form_with url: "/", method: :get do |form| %>
-  <%= form.label :id, "Flicker User ID:" %>
-  <%= form.text_field :id %>
+  <%= form.label :flickr_id, "Flicker User ID:" %>
+  <%= form.text_field :flickr_id %>
   <%= form.submit "Get Photos" %>
 <% end %>
+
+
+    <% @url_array.each do |url| %>
+
+      <%= image_tag "#{url}" %>
+    
+    <% end %>
+
+
+
+<%= @url_array %> <br>
+<%= @response %>
+
+
+
+  
