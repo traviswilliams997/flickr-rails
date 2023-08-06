@@ -2,7 +2,8 @@ class StaticPagesController < ApplicationController
 
   def index 
     if params[:flickr_id].present?
-      API.get_data(params[:flickr_id])
+      @user_photos_info =  API.get_data(params[:flickr_id])
+      initialize_url(@user_photos_info) 
     end
   end
 
@@ -13,6 +14,9 @@ class StaticPagesController < ApplicationController
 
   end 
 
-
-
+  def  initialize_url(info)
+    info["photos"]["photo"].each do |photo| 
+      Url.new(photo["server"],photo["id"], photo["secret"])
+    end 
+  end
 end
