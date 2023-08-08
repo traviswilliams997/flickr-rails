@@ -5,10 +5,10 @@ class Url
 
     attr_accessor :server, :id, :secret
 
-    def initialize(server, id, secret)
-        @server = server
-        @id = id 
-        @secret  = secret
+    def initialize(args_hash)
+        args_hash.each do |key, value |
+        self.send("#{key}=", value) if self.respond_to?("#{key}=") 
+        end
         create_url
         save_url
         save

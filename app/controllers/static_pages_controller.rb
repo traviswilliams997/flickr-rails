@@ -16,8 +16,8 @@ class StaticPagesController < ApplicationController
   end 
 
   def  initialize_url(info)
-    info["photos"]["photo"].each do |photo| 
-      Url.new(photo["server"],photo["id"], photo["secret"])
+    info["photos"]["photo"].each do |photo_hash| 
+      Url.new(photo_hash)
     end 
   end
 
