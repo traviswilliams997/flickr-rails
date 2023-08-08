@@ -7,18 +7,11 @@
   <%= form.submit "Get Photos" %>
 <% end %>
 
-<%  urls = Url.get_urls %>
-    <% urls.each do |url| %>
-
-      <%= image_tag "#{url}" %>
-    
-    <% end %>
-
-
-
-<% urls %> <br>
-<% @response %>
-
+<% if @urls.present?%>     
+  <% @urls.each do |url| %>
+    <%= image_tag "#{url}" %>  
+  <% end %>
+<% end%>
 
 
   
