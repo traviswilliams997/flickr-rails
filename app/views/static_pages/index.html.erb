@@ -6,10 +6,17 @@
   <%= form.submit "Get Photos" %>
 <% end %>
 
-<% if @urls.present?%>     
+<% if @urls.present?%>   
+<div data-controller="slideshow"  data-slideshow-index-value="1">
+ <button data-action="slideshow#previous"> ← </button>
+  <button data-action="slideshow#next"> → </button>
+
   <% @urls.each do |url| %>
+  <div data-slideshow-target="slide">
     <%= image_tag "#{url}" %>  
+      </div>  
   <% end %>
+  </div>
 <% end%>
 
 
